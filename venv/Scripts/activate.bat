@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\cadum\documents\Projeto cadastro de visitantes\venv
+set VIRTUAL_ENV=C:\Users\T-Gamer\desktop\Projects GitHub\Projeto cadastro visitantes\venv
 
 if not defined PROMPT set PROMPT=$P$G
 
