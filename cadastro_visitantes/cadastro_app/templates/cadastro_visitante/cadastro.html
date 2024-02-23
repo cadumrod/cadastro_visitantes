@@ -1,0 +1,20 @@
+<form action="{% url 'consulta_visitantes' %}" method="POST">
+    {% csrf_token %}
+    <label for="">Tipo de visitante: </label>
+        <select name="Tipocadastro">
+            <option value="civil">Civil</option>
+            <option value="militar">Militar</option>
+        </select>
+
+    <label for="">Nome: </label>
+    <input type="text" name="Nomecadastro">
+
+    <label for="">R.g: </label>
+    <input type="text" name="Rgcadastro">
+
+    <label for="">Motivo da visita: </label>
+    <input type="text" name="Motivocadastro">
+
+
+    <button type="submit">Salvar</button>
+</form>

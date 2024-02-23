@@ -21,5 +21,6 @@ from cadastro_app import views
 urlpatterns = [
     path('', views.pagina_inicial),
     path('contato/', views.pagina_contato, name='contato'),
-    path('cadastro_visitante/', views.pagina_de_cadastro, name='cadastro_visitante')
+    path('consulta_visitantes/', views.consulta_visitantes, name='consulta_visitantes'),
+    path('cadastro/', views.cadastrar_visitante, name='cadastro')
 ]
