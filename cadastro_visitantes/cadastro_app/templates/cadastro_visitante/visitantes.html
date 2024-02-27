@@ -1,18 +1,25 @@
-<h1>Listagem de visitantes</h1>
-<button><a href="{% url 'novo_visitante' %}">Novo Visitante</a></button>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>Data</th>
-    </tr>
-    {% for dado in dados %}
-    <tr>
-        <td>{{dado.id}}</td>
-        <td>{{dado.nome}}</td>
-        <td>{{dado.data}}</td>
-        <td><button><a href="{% url 'detalhe' dado.id %}">Detalhe</a></button></td>
-        <td><button><a href="{% url 'editar' dado.id %}">Editar</a></button></td>
-    </tr>
-    {% endfor %}
-</table>
+{% extends 'cadastro_visitante/base.html' %}
+{% block conteudo %}
+<h1 style="text-align: center;">Lista de visitantes</h1>
+<div class="container">
+    <button class="btn btn-success" style="margin-bottom: 10px;"><a style="color: white;" href="{% url 'novo_visitante' %}">Novo Visitante</a></button>
+    <table class="table table-striped table-bordered">
+        <tr>
+            <th>Nome</th>
+            <th>Data</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for dado in dados %}
+        <tr>
+            <td>{{dado.nome}}</td>
+            <td>{{dado.data}}</td>
+            <td><button class="btn btn-info"><a style="color: white" 
+                href="{% url 'detalhe' dado.id %}">Detalhe</a></button></td>
+            <td><button class="btn btn-warning"><a style="color: white" 
+                href="{% url 'editar' dado.id %}">Editar</a></button></td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

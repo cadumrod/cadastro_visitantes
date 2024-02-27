@@ -1,19 +1,23 @@
-<h1>Detalhe do visitante</h1>
-<table>
-    <tr>
-        <th>Id</th>
-        <th>Tipo</th>
-        <th>Nome</th>
-        <th>Rg</th>
-        <th>Motivo</th>
-        <th>Data</th>
-    </tr>
-    <tr>
-        <td>{{dados.id}}</td>
-        <td>{{dados.tipo}}</td>
-        <td>{{dados.nome}}</td>
-        <td>{{dados.rg}}</td>
-        <td>{{dados.motivo}}</td>
-        <td>{{dados.data}}</td>
-    </tr>
-</table>
+{% extends 'cadastro_visitante/base.html' %}
+{% block conteudo %}
+<h1 style="text-align: center;">Detalhe do visitante</h1>
+<div class="container">
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Tipo</th>
+            <th>Nome</th>
+            <th>Rg</th>
+            <th>Motivo</th>
+            <th>Data</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>{{dados.tipo}}</td>
+            <td>{{dados.nome}}</td>
+            <td>{{dados.rg}}</td>
+            <td>{{dados.motivo}}</td>
+            <td>{{dados.data}}</td>
+        </tr>
+    </table>
+</div>
+{% endblock %}

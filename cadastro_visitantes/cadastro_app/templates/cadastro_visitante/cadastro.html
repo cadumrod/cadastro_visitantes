@@ -1,6 +1,9 @@
+{% extends 'cadastro_visitante/base.html' %}
+{% block conteudo %}
 <form action="" method="POST">
     {% csrf_token %}
     <h1>Formulário de novo visitante</h1>
     {{formulario}}
     <button type="submit">Salvar</button>
 </form>
+{% endblock %}

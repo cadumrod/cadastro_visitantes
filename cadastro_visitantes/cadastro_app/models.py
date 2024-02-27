@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from django.core.validators import RegexValidator
 
 """
 Data
@@ -15,11 +16,11 @@ Motivo
 
 class Visitante(models.Model):
     tipo_visitante = [
-        ('civil', 'Civil'),
-        ('militar', 'Militar')
+        ('Civil', 'Civil'),
+        ('Militar', 'Militar')
     ]
     tipo = models.CharField(max_length=10, choices=tipo_visitante)
     nome = models.TextField(max_length=255)
-    rg = models.IntegerField()
+    rg = models.CharField(max_length=11)
     motivo = models.TextField(max_length=255)
     data = models.DateField(default=datetime.now)
