@@ -1,9 +1,34 @@
 {% extends 'cadastro_visitante/base.html' %}
 {% block conteudo %}
-<form action="" method="POST">
-    {% csrf_token %}
-    <h1>Formulário de novo visitante</h1>
-    {{formulario}}
-    <button type="submit">Salvar</button>
-</form>
+<div class="container">
+    <form method="POST" class="my-4">
+        {% csrf_token %}
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td><label for="id_tipo" class="form-label">Tipo:</label></td>
+                    <td>{{ formulario.tipo }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_nome" class="form-label">Nome:</label></td>
+                    <td>{{ formulario.nome }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_rg" class="form-label">RG:</label></td>
+                    <td>{{ formulario.rg }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_motivo" class="form-label">Motivo:</label></td>
+                    <td>{{ formulario.motivo }}</td>
+                </tr>
+                <tr>
+                    <td><label for="id_data" class="form-label">Data:</label></td>
+                    <td>{{ formulario.data }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+    </form>
+</div>
 {% endblock %}
+
