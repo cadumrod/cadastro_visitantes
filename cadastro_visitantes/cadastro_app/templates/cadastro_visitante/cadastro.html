@@ -1,34 +1,23 @@
 {% extends 'cadastro_visitante/base.html' %}
 {% block conteudo %}
+{% load widget_tweaks %}
 <div class="container">
-    <form method="POST" class="my-4">
+    <form action="" method="POST">
         {% csrf_token %}
-        <table class="table">
-            <tbody>
-                <tr>
-                    <td><label for="id_tipo" class="form-label">Tipo:</label></td>
-                    <td>{{ formulario.tipo }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_nome" class="form-label">Nome:</label></td>
-                    <td>{{ formulario.nome }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_rg" class="form-label">RG:</label></td>
-                    <td>{{ formulario.rg }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_motivo" class="form-label">Motivo:</label></td>
-                    <td>{{ formulario.motivo }}</td>
-                </tr>
-                <tr>
-                    <td><label for="id_data" class="form-label">Data:</label></td>
-                    <td>{{ formulario.data }}</td>
-                </tr>
-            </tbody>
-        </table>
-        <button type="submit" class="btn btn-primary">Salvar</button>
+        <h1 style="text-align: center;">Visitante</h1>
+        <div class='form-row align-items-center'>
+            <label>Tipo</label>
+            {% render_field formulario.tipo class='form-control' %}
+            <label>Nome</label>
+            {% render_field formulario.nome class='form-control' style='height: 38px;' %}
+            <label>Rg</label>
+            {% render_field formulario.rg class='form-control' %}
+            <label>Motivo</label>
+            {% render_field formulario.motivo class='form-control' style='height: 38px;' %}
+            <label>Data</label>
+            {% render_field formulario.data class='form-control' %}
+        </div>
+        <button style='margin-top: 10px;' class='btn btn-success' type="submit">Salvar</button>
     </form>
 </div>
 {% endblock %}
-
