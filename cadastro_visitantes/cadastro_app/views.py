@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, HttpResponse
 from .models import Visitante
 from .forms import VisitanteForm
-
+import re
 
 def visitantes(request):
     dados = {

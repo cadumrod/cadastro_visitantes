@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+import re
 
 """
 Data
@@ -20,6 +21,6 @@ class Visitante(models.Model):
     ]
     tipo = models.CharField(max_length=10, choices=tipo_visitante)
     nome = models.TextField(max_length=255)
-    rg = models.CharField(max_length=11)
+    rg = models.CharField(max_length=12)
     motivo = models.TextField(max_length=255)
     data = models.DateField(default=datetime.now)
