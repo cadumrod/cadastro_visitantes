@@ -1,0 +1,11 @@
+{% extends 'cadastro_visitante/base.html' %}
+{% block conteudo %}
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        {{ formulario.as_p}}
+        <button class="btn btn-primary" type="submit">Criar novo usuário</button>
+        <a href="#">Já possui uma conta? Entre aqui.</a>
+    </form>
+</div>
+{% endblock %}

@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'cadastro_app',
     'crispy_forms',
     'crispy_bootstrap5',
-    'widget_tweaks'
+    'widget_tweaks',
+    'usuarios'
 ]
 
 MIDDLEWARE = [
