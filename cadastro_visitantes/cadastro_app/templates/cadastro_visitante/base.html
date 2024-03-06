@@ -26,6 +26,11 @@
     <nav class="navbar navbar-light bg-grey">
         <a class="navbar-brand" href="{% url 'visitantes' %}">Página Inicial</a>
       </nav>
+      {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}">{{message}}</div>
+        {% endfor %}
+        {% endif %}
       {% block conteudo %}
       
       {% endblock %}
