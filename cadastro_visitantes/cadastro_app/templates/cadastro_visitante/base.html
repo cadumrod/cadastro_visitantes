@@ -24,8 +24,18 @@
   </head>
   <body>
     <nav class="navbar navbar-light bg-grey">
-        <a class="navbar-brand" href="{% url 'visitantes' %}">Página Inicial</a>
-      </nav>
+      <div class="container-fluid">
+          <div class="row">
+              <div class="col">
+                  <a class="navbar-brand" href="{% url 'visitantes' %}">Página Inicial</a>
+              </div>
+              <div class="col">
+                  <a class="navbar-brand" href="{% url 'novo_usuario' %}">Criar usuário</a>
+              </div>
+          </div>
+      </div>
+  </nav>
+  
       {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">{{message}}</div>
