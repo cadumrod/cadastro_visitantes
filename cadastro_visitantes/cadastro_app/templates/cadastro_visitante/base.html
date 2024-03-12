@@ -24,14 +24,37 @@
   </head>
   <body>
     <nav class="navbar navbar-light bg-grey">
-      <div class="container-fluid">
-          <div class="row">
-              <div class="col">
-                  <a class="navbar-brand" href="{% url 'visitantes' %}">Página Inicial</a>
-          </div>
-      </div>
+        <form method="POST" action="{% url 'visitantes' %}">
+          {% csrf_token %}
+          <button class="btn btn-secondary" type="submit">Página inicial</button>
+        </form>
+        <ul style="list-style: none;">
+          {% if user.is_authenticated %}
+          <li style="float: left;">
+            <strong class="nav-item nav-link" style="color: black;">Bem-vindo, {{user.get_username}}.</strong>
+          </li>
+          <li style="float: left;">
+            <form method="POST" action="{% url 'logout' %}">
+              {% csrf_token %}
+              <button class="btn btn-secondary" type="submit">Sair</button>
+            </form>
+          </li>
+          {% else %}
+          <li style="float: left;">
+            <form method="POST" action="{% url 'login' %}">
+              {% csrf_token %}
+              <button class="btn btn-secondary" type="submit">Login</button>
+            </form>
+          </li>
+          <li style="float: left;">
+            <form method="POST" action="{% url 'novo_usuario' %}">
+              {% csrf_token %}
+              <button class="btn btn-secondary" type="submit">Criar conta</button>
+            </form>
+          </li>
+          {% endif %}
+        </ul>
     </nav>
-  
       {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">{{message}}</div>
