@@ -1,0 +1,14 @@
+{% extends 'cadastro_visitante/base.html' %}
+{% block conteudo %}
+
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <h1 style="text-align: center;">Confirmar exclusão do(a) {{item.nome}}</h1>
+        <div style="display: flex; justify-content: center;">
+            <button class="btn btn-success"><a style="color: white; text-decoration: none;" href="{% url 'visitantes' %}">Cancelar</a></button>
+            <button class="btn btn-danger" type="submit">Confirmar</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
