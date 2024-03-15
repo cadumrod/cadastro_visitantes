@@ -1,10 +1,9 @@
-from django.shortcuts import render, redirect, HttpResponse
+from django.shortcuts import render, redirect, HttpResponse, get_object_or_404
 from .models import Visitante
 from .forms import VisitanteForm
-import re
 from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def visitantes(request):
     dados = {
         'dados': Visitante.objects.all()
@@ -45,10 +44,30 @@ def editar(request, id_visitante):
             formulario.save()
             return redirect('visitantes')
         
+#@login_required
+#def excluir(request, id_visitante):
+#    visitante = Visitante.objects.get(pk=id_visitante)
+#    if request.method == 'POST':
+#        visitante.delete()
+#        return redirect('visitantes')
+#    return render(request,'cadastro_visitante/confirmar_exclusao.html',{'item': visitante})
 
+
+@login_required
 def excluir(request, id_visitante):
-    visitante = Visitante.objects.get(pk=id_visitante)
+    # Identifique o usuário específico
+    admin = 'admin'  # Substitua pelo nome de usuário ou ID do usuário específico
+    
+    # Verifique se o usuário atual é o usuário específico
+    if request.user.username != admin:
+        return redirect('permissao_negada')  # Redirecione para uma página de permissão negada
+    
+    visitante = get_object_or_404(Visitante, pk=id_visitante)
     if request.method == 'POST':
         visitante.delete()
         return redirect('visitantes')
-    return render(request,'cadastro_visitante/confirmar_exclusao.html',{'item': visitante})
+    return render(request, 'cadastro_visitante/confirmar_exclusao.html', {'item': visitante})
+
+
+def permissao_negada(request):
+    return render(request, 'cadastro_visitante/permissao_negada.html')
