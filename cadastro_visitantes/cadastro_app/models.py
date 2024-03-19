@@ -1,17 +1,5 @@
 from django.db import models
 from datetime import datetime
-import re
-
-"""
-Data
-Tipo
-Nome
-Rg
-Motivo
-"""
-
-
-
 
 
 class Visitante(models.Model):
